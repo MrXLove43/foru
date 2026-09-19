@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Для тебя ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #0d0d12;
+            color: #f5f5f5;
+            font-family: Arial, sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 430px;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .screen {
+            display: none;
+            animation: fadeIn 1s ease;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #d8d8de;
+        }
+
+        .small {
+            font-size: 13px;
+            color: #777783;
+            margin-top: 30px;
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 13px 30px;
+
+            border: 1px solid #555;
+            border-radius: 30px;
+
+            background: transparent;
+            color: white;
+
+            font-size: 15px;
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: white;
+            color: #111;
+        }
+
+        .stitch {
+            width: 210px;
+            max-width: 70%;
+            margin: 20px auto 25px;
+
+            animation: breathing 3s ease-in-out infinite;
+        }
+
+        .heart {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes breathing {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.04);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ЭКРАН 1 -->
+
+    <div class="screen active" id="screen1">
+
+        <div class="heart">♡</div>
+
+        <h1>Привет.</h1>
+
+        <p>
+            Если ты сейчас это читаешь,
+            значит, ты всё-таки нашла это.
+        </p>
+
+        <p>
+            И да...
+            я специально сделал так,
+            чтобы ты не сразу поняла,
+            что происходит.
+        </p>
+
+        <button onclick="nextScreen(2)">
+            Продолжить
+        </button>
+
+    </div>
+
+
+    <!-- ЭКРАН 2 -->
+
+    <div class="screen" id="screen2">
+
+        <h1>Есть одна маленькая просьба.</h1>
+
+        <p>
+            Не закрывай страницу пока.
+        </p>
+
+        <p>
+            Я хотел оставить тебе не просто подарок.
+            Хотелось сделать маленький момент,
+            который ты случайно найдёшь сама.
+        </p>
+
+        <button onclick="nextScreen(3)">
+            Хорошо
+        </button>
+
+    </div>
+
+
+    <!-- ЭКРАН 3 -->
+
+    <div class="screen" id="screen3">
+
+        <h1>А теперь...</h1>
+
+        <p>
+            Открой то, что я оставил тебе.
+        </p>
+
+        <p>
+            Там тебя кое-кто ждёт.
+        </p>
+
+        <button onclick="nextScreen(4)">
+            Открыть
+        </button>
+
+    </div>
+
+
+    <!-- ЭКРАН 4 -->
+
+    <div class="screen" id="screen4">
+
+        <!--
+        СЮДА ПОТОМ МОЖНО ПОСТАВИТЬ ФОТО ТВОЕГО СТИЧА.
+
+        Например:
+
+        <img class="stitch" src="stitch.jpg">
+        -->
+
+        <div class="stitch" style="font-size: 100px;">
+            🩵
+        </div>
+
+        <h1>Теперь у тебя есть кое-кто...</h1>
+
+        <p>
+            ...кто будет напоминать тебе обо мне,
+            когда меня нет рядом.
+        </p>
+
+        <p>
+            Береги его.
+            И себя тоже.
+        </p>
+
+        <div class="small">
+            ❤️
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    function nextScreen(number) {
+
+        document.querySelectorAll('.screen')
+            .forEach(screen => {
+                screen.classList.remove('active');
+            });
+
+        document
+            .getElementById('screen' + number)
+            .classList.add('active');
+    }
+
+</script>
+
+</body>
+</html>
